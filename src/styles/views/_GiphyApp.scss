@@ -30,12 +30,16 @@
 }
 
 .gifs-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-    justify-content: center;
+    // display: grid;
+    // grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    // gap: 20px;
+    // justify-content: center;
+
+    // column-count: 3;
+    columns: 250px;
 
     .gif {
+        margin-bottom: 1rem;
         img {
             border-radius: 8px;
         }

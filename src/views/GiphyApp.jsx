@@ -8,16 +8,24 @@ export const GiphyApp = () => {
     const [query, setQuery] = useState('');
     const [gifs, setGifs] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
+    // const [offset, setOffset] = useState(0);
+    const timeout = useRef(null);
 
     useEffect(() => {
 
+
         if (!query) return;
 
-        setIsLoading(true);
+        clearTimeout(timeout.current);
+        timeout.current = setTimeout(() => {
 
-        get(query)
-            .then(res => setGifs(res.data))
-            .finally(() => setIsLoading(false))
+            setIsLoading(true);
+
+            get(query)
+                .then(res => setGifs(res.data))
+                .finally(() => setIsLoading(false))
+
+        }, 1000);
 
     }, [query])
 
